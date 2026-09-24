@@ -13,4 +13,10 @@ def test_health_check() -> None:
         "status": "healthy",
         "service": "nexusflow-api",
     }
-    
+
+
+def test_list_jobs() -> None:
+    response = client.get("/jobs/")
+
+    assert response.status_code == 200
+    assert response.json() == []
